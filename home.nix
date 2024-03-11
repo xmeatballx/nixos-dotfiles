@@ -38,11 +38,32 @@ in
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     (pkgs.writeShellScriptBin "reconfig" ''
+      FRAMES="/ | \\ -";
       pushd ~/nixos-dotfiles/
       nvim .
       git diff -U0
       echo "Home-Manager Rebuilding..."
-      home-manager switch --flake . &> /dev/null
+      home-manager switch --flake . &> /dev/null & pid=$!
+      while ps -p $pid > /dev/null;
+      do
+        for frame in $FRAMES;
+        do
+          printf "\r$frame Syncing system configuration...";
+          sleep 0.2;
+        done
+        if [ ! -d "/proc/$pid" ]; then
+          wait $pid
+          status=$?
+        else
+          status=127
+        fi
+      done
+      if [ $status = 0 ]; then
+        printf "\r$GREEN✓$NC Syncing system configuration...$GREEN [Success!]$NC";
+      else
+        printf "\r$RED×$NC Syncing system configuration...$RED [Failed!]$NC";
+      fi
+      printf "\n"'
       sudo nixos-rebuild switch --flake .#nixos-main &> nixos-switch.log || (
       cat nixos-switch.log | grep --color error && false)
       gen=$(nixos-rebuild list-generations | grep current)
