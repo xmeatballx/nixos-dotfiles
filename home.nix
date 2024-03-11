@@ -38,14 +38,19 @@ in
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     (pkgs.writeShellScriptBin "reconfig" ''
-      nvim ~/nixos-dotfiles
+      pushd ~/nixos-dotfiles/
+      nvim
       git diff -U0
+      echo "Home-Manager Rebuilding..."
+      home-manager switch --flake .
       echo "NixOS Rebuilding..."
-      sudo nixos-rebuild switch ~/nixos-dotfiles&>nixos-switch.log || (
+      sudo nixos-rebuild switch --flake .#nixos-main&>nixos-switch.log || (
       cat nixos-switch.log | grep --color error && false)
       gen=$(nixos-rebuild list-generations | grep current)
+      rm nixos-switch.log
       git commit -am "$gen"
-      sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-main
+      sudo nixos-rebuild switch --flake .#nixos-main
+      popd
     '')
   ];
 
