@@ -39,7 +39,7 @@ in
     # # environment:
     (pkgs.writeShellScriptBin "reconfig" ''
       pushd ~/nixos-dotfiles/
-      nvim
+      nvim .
       git diff -U0
       echo "Home-Manager Rebuilding..."
       home-manager switch --flake .
