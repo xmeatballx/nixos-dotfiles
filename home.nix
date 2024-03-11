@@ -43,7 +43,7 @@ in
       nvim .
       git diff -U0
       echo "Home-Manager Rebuilding..."
-      home-manager switch --flake . &> /dev/null & pid=$!
+      home-manager switch --flake . &> /dev/null & pid=$!;
       while ps -p $pid > /dev/null;
       do
         for frame in $FRAMES;
@@ -63,7 +63,7 @@ in
       else
         printf "\r$RED×$NC Syncing system configuration...$RED [Failed!]$NC";
       fi
-      printf "\n"'
+      printf "\n"
       sudo nixos-rebuild switch --flake .#nixos-main &> nixos-switch.log || (
       cat nixos-switch.log | grep --color error && false)
       gen=$(nixos-rebuild list-generations | grep current)
