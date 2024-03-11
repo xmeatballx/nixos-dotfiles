@@ -39,7 +39,12 @@ in
     # # environment:
     (pkgs.writeShellScriptBin "reconfig" ''
       nvim ~/nixos-dotfiles
-      home-manager switch --flake ~/nixos-dotfiles
+      git diff -U0
+      echo "NixOS Rebuilding..."
+      sudo nixos-rebuild switch ~/nixos-dotfiles&>nixos-switch.log || (
+      cat nixos-switch.log | grep --color error && false)
+      gen=$(nixos-rebuild list-generations | grep current)
+      git commit -am "$gen"
       sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-main
     '')
   ];
