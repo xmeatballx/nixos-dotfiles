@@ -35,40 +35,41 @@ in
     neofetch
 
     (pkgs.writeShellScriptBin "reconfig" ''
-      function showProgress()  {
-        command=$1;
-        commonName=$2;
-        FRAMES="/ | \\ -";
-        pushd ~/nixos-dotfiles &> /dev/null
-        nvim .
-        git diff -U0
-        #home-manager switch --flake . &> /dev/null & pid=$!;
-        exec $command &> /dev/null & pid=$!;
-        while ps -p $pid > /dev/null;
-        do
-          for frame in $FRAMES;
-          do
-            printf "\r$frame Syncing $commonName configuration...";
-            sleep 0.2;
-          done
-          if [ ! -d "/proc/$pid" ]; then
-            wait $pid
-            status=$?
-          else
-            status=127
-          fi
+      function showProgress() {
+        local command="$1"
+        local commonName="$2"
+        local FRAMES="/ | \\ -"
+        local status=0
+
+        $command &> nixos-switch.log || (cat nixos-switch.log | grep --color error && false) & pid=$!
+
+        while ps -p $pid > /dev/null; do
+            for frame in $FRAMES; do
+                printf "\r$frame Syncing $commonName configuration..."
+                sleep 0.2
+            done
+            if ! kill -0 $pid 2>/dev/null; then
+                wait $pid
+                status=$?
+                break
+            fi
         done
-        if [ $status = 0 ]; then
-          printf "\r$GREEN✓$NC Syncing $commonName configuration...$GREEN [Success!]$NC";
+
+        if [ $status -eq 0 ]; then
+            printf "\r$GREEN✓$NC Syncing $commonName configuration...$GREEN [Success!]$NC\n"
         else
-          printf "\r$RED×$NC Syncing $commonName configuration...$RED [Failed!]$NC";
+            printf "\r$RED×$NC Syncing $commonName configuration...$RED [Failed!]$NC\n"
         fi
+        printf "\n"
       }
-      printf "\n"
-      sudo nixos-rebuild switch --flake .#nixos-main &> nixos-switch.log || (
-      cat nixos-switch.log | grep --color error && false)
-      gen=$(nixos-rebuild list-generations | grep current)
+
+      pushd ~/nixos-dotfiles &> /dev/null
+      nvim .
+      git diff -U0
+      showProgress "home-manager switch --flake ." "Home-Manager"
+      showProgress "sudo nixos-rebuild switch --flake .#nixos-main" "System" 
       rm nixos-switch.log
+      gen=$(nixos-rebuild list-generations | grep current);
       git commit -am "$gen"
       popd &> /dev/null
     '')
