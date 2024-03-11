@@ -44,12 +44,11 @@ in
       echo "Home-Manager Rebuilding..."
       home-manager switch --flake . &> /dev/null
       echo "NixOS Rebuilding..."
-      sudo nixos-rebuild switch --flake .#nixos-main&>nixos-switch.log || (
+      sudo nixos-rebuild switch --flake .#nixos-main &> nixos-switch.log || (
       cat nixos-switch.log | grep --color error && false)
       gen=$(nixos-rebuild list-generations | grep current)
       rm nixos-switch.log
       git commit -am "$gen"
-      sudo nixos-rebuild switch --flake .#nixos-main
       popd &> /dev/null
     '')
   ];
