@@ -42,7 +42,7 @@ in
       nvim .
       git diff -U0
       echo "Home-Manager Rebuilding..."
-      home-manager switch --flake .
+      home-manager switch --flake . &> /dev/null
       echo "NixOS Rebuilding..."
       sudo nixos-rebuild switch --flake .#nixos-main&>nixos-switch.log || (
       cat nixos-switch.log | grep --color error && false)
@@ -50,7 +50,7 @@ in
       rm nixos-switch.log
       git commit -am "$gen"
       sudo nixos-rebuild switch --flake .#nixos-main
-      popd
+      popd &> /dev/null
     '')
   ];
 
