@@ -31,7 +31,6 @@ in
 
   home.packages = with pkgs; [
     image-roll
-    nitrogen
     i3-gaps
     cmake
     gcc
@@ -224,6 +223,7 @@ in
     userEmail = "erik.jensen5@pcc.edu";
     userName = "xmeatballx";
   };
+
 
   services.picom = {
     enable = true;
