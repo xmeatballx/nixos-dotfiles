@@ -106,6 +106,7 @@ in
       gaps = {
         inner = 5;
         outer = 5;
+        smartGaps = true;
       };
       keybindings = with pkgs; {
         "${mod}+h" = "focus left";
