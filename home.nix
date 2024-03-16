@@ -22,6 +22,13 @@ in
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   home.packages = with pkgs; [
     image-roll
     nitrogen
