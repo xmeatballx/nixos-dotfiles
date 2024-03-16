@@ -6,7 +6,7 @@ let
   text     ="#cdd6f4";
   overlay0 ="#6c7086";
   base     ="#1e1e2e";
-  wallpaper=./config/wallpapers/pixels.png;
+  wallpaper=./config/wallpapers/nix_dark.png;
   mod      ="Mod4";
 in 
 {
@@ -214,7 +214,6 @@ in
 
   programs.neovim = { 
     enable = true;
-
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
