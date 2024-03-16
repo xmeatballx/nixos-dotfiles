@@ -54,10 +54,16 @@
     };
   };
 
-
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "${pkgs.i3-gaps}/bin/i3";
-  services.xrdp.openFirewall = true;
+  services.pipewire = {
+    enable = true;
+    audio.enable = true;
+    pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    jack.enable = true;
+  };
 
   users.users.meatball = {
     isNormalUser = true;
