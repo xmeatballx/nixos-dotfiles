@@ -132,8 +132,6 @@
      };
   };
   
-  programs.nm-applet.enable = true;
-
   programs.git = {
     enable = true;
     config = {
@@ -143,6 +141,8 @@
       credential.helper = "store";
     };
   };  
+
+  programs.light.enable = true;
 
   security.acme = {
     acceptTerms = true;
