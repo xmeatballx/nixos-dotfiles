@@ -199,6 +199,9 @@ in
         { command = "picom --daemon --config ~/.config/picom/default.conf"; always = true; } 
       ];
     };
+    extraConfig = ''
+      for_window [class="google-chrome"] border pixel 0
+    '';
   };
 
 
