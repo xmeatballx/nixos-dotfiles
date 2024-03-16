@@ -83,6 +83,7 @@
      docker-compose
      nodejs_21
      wget
+     pamixer
   ];
 
   fonts.packages = with pkgs; [
