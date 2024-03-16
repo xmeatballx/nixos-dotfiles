@@ -85,7 +85,7 @@ in
       recursive = true;
     };
 
-    ".config/wallpapers/wallpaper.png" = {
+    ".background-image" = {
         source = "${wallpaper}";
     };
 
@@ -194,10 +194,6 @@ in
           childBorder = "${overlay0}";
         };
       };
-      startup = [ 
-        { command = "--no-startup-id nitrogen --set-zoom-fill .config/wallpapers/wallpaper.png"; always = true; }
-        { command = "picom --daemon --config ~/.config/picom/default.conf"; always = true; } 
-      ];
     };
     extraConfig = ''
       for_window [class="Google-chrome"] border pixel 0
@@ -225,6 +221,13 @@ in
     enable = true;
     userEmail = "erik.jensen5@pcc.edu";
     userName = "xmeatballx";
+  };
+
+  services.picom = {
+    enable = true;
+    activeOpacity = 0.95;
+    inactiveOpacity = 0.9;
+    fade = true;
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
