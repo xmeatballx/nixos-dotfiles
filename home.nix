@@ -37,6 +37,8 @@ in
     gcc
     neofetch
     google-chrome
+    slack
+    discord
 
     (pkgs.writeShellScriptBin "reconfig" ''
       function showProgress() {
