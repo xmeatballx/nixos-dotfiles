@@ -132,6 +132,8 @@
      };
   };
   
+  programs.nm-applet.enable = true;
+
   programs.git = {
     enable = true;
     config = {
