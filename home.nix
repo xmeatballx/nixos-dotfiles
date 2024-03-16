@@ -76,7 +76,7 @@ in
       
       read -s -p "Enter sudo password: " sudo_password
 
-      echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop
+      showProgress "echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop"
       rm nixos-switch.log
       gen=$(nixos-rebuild list-generations | grep current);
       git commit -am "$gen"
