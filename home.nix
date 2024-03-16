@@ -38,6 +38,7 @@ in
     google-chrome
     slack
     discord
+    brightnessctl
 
     (pkgs.writeShellScriptBin "reconfig" ''
       function showProgress() {
@@ -157,6 +158,9 @@ in
 
         "XF86AudioLowerVolume" = "exec pamixer -d 5";
         "XF86AudioRaiseVolume" = "exec pamixer -i 5";
+
+        "XF86MonBrightnessUp" = "exec brightnessctl set 10%+";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 10%- -n 100";
       };
       colors = {
         background = "${base}";
@@ -223,7 +227,6 @@ in
     userEmail = "erik.jensen5@pcc.edu";
     userName = "xmeatballx";
   };
-
 
   services.picom = {
     enable = true;

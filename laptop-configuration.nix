@@ -142,8 +142,6 @@
     };
   };  
 
-  programs.light.enable = true;
-
   security.acme = {
     acceptTerms = true;
     defaults.email = "erik.rjensen@yahoo.com";
