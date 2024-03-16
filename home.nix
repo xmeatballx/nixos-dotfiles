@@ -145,6 +145,9 @@ in
         "${mod}+8" = "workspace 8";
         "${mod}+9" = "workspace 9";
         "${mod}+10" = "workspace 10";
+
+        "XF86AudioLowerVolume" = "exec pamixer -d 5";
+        "XF86AudioRaiseVolume" = "exec pamixer -i 5";
       };
       colors = {
         background = "${base}";
