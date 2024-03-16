@@ -25,6 +25,10 @@
         nixos-wsl.nixosModules.wsl
       ];   
      };
+     nixos-laptop = lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [ ./laptop-configuration.nix ];
+     };
     };
     homeConfigurations = {
       meatball = home-manager.lib.homeManagerConfiguration {

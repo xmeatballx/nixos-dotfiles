@@ -29,6 +29,7 @@ in
     cmake
     gcc
     neofetch
+    firefox 
 
     (pkgs.writeShellScriptBin "reconfig" ''
       function showProgress() {
@@ -62,8 +63,8 @@ in
       pushd ~/nixos-dotfiles &> /dev/null
       nvim .
       git diff -U0
-      showProgress "home-manager switch --flake ." "Home-Manager"
-      showProgress "sudo nixos-rebuild switch --flake .#nixos-main" "System" 
+      showProgress "home-manager switch --flake .#meatball" "Home-Manager"
+      showProgress "sudo nixos-rebuild switch --flake .#nixos-laptop" "System" 
       rm nixos-switch.log
       gen=$(nixos-rebuild list-generations | grep current);
       git commit -am "$gen"
@@ -121,6 +122,29 @@ in
 #        "${mod}+Shift+e" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+Shift+q" = "kill";
+        "${mod}+d"= "exec dmenu_run";
+
+        "${mod}+Shift+1" = "move container workspace 1";
+        "${mod}+Shift+2" = "move container workspace 2";
+        "${mod}+Shift+3" = "move container workspace 3";
+        "${mod}+Shift+4" = "move container workspace 4";
+        "${mod}+Shift+5" = "move container workspace 5";
+        "${mod}+Shift+6" = "move container workspace 6";
+        "${mod}+Shift+7" = "move container workspace 7";
+        "${mod}+Shift+8" = "move container workspace 8";
+        "${mod}+Shift+9" = "move container workspace 9";
+        "${mod}+Shift+0" = "move container workspace 10";
+
+        "${mod}+1" = "workspace 1";
+        "${mod}+2" = "workspace 2";
+        "${mod}+3" = "workspace 3";
+        "${mod}+4" = "workspace 4";
+        "${mod}+5" = "workspace 5";
+        "${mod}+6" = "workspace 6";
+        "${mod}+7" = "workspace 7";
+        "${mod}+8" = "workspace 8";
+        "${mod}+9" = "workspace 9";
+        "${mod}+10" = "workspace 10";
       };
       colors = {
         background = "${base}";
@@ -184,6 +208,11 @@ in
     vimdiffAlias = true;
   };
 
+  programs.git = {
+    enable = true;
+    userEmail = "erik.jensen5@pcc.edu";
+    userName = "xmeatballx";
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
