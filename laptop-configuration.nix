@@ -72,7 +72,12 @@
     packages = with pkgs; [];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
 
   virtualisation.docker.enable = true;
 

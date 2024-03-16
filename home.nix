@@ -29,7 +29,7 @@ in
     cmake
     gcc
     neofetch
-    firefox 
+    google-chrome
 
     (pkgs.writeShellScriptBin "reconfig" ''
       function showProgress() {
