@@ -73,7 +73,10 @@ in
       nvim .
       git diff -U0
       showProgress "home-manager switch --flake .#meatball" "Home-Manager"
-      showProgress "sudo nixos-rebuild switch --flake .#nixos-laptop" "System" 
+      
+      read -s -p "Enter sudo password: " sudo_password
+
+      echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop
       rm nixos-switch.log
       gen=$(nixos-rebuild list-generations | grep current);
       git commit -am "$gen"
