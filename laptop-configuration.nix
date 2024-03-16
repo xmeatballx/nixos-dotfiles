@@ -31,6 +31,7 @@
 
   services.xserver = {
     enable = true;
+    libinput.touchpad.naturalScrolling  = true;
 
     desktopManager = {
       xterm.enable = false;
