@@ -245,6 +245,7 @@ in
   };
 
   programs.i3status = {
+    enable = true;
     enableDefault = false;
     modules = {
       "tztime local" = {
