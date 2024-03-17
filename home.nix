@@ -243,6 +243,9 @@ in
   programs.i3status = {
     enable = true;
     enableDefault = false;
+    general = {
+      font = "JetBrainsMono 10";
+    };
     modules = {
       "tztime local" = {
         position = 1;
