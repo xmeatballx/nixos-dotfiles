@@ -253,7 +253,8 @@ in
       "wireless wlan0" = {
         position = 2;
         settings = {
-          format = "%ip";
+          format_up = "%ip";
+          format_down = "no wifi";
         };
       };
       "battery 0" = {
