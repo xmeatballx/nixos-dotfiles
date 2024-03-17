@@ -250,21 +250,21 @@ in
           format = "%I:%M %p  %m-%d-%Y";
         };
       };
-      "wireless _first_" = {
-        position = 2;
-        settings = {
-          format_up = "%ip";
-          format_down = "no wifi";
-        };
-      };
       "battery 0" = {
-        position = 3;
+        position = 2;
         settings = {
           format = "%status %percentage";
           status_chr = "⚡";
           status_bat = "🔋";
           status_unk = "?";
           status_full = "☻";
+        };
+      };
+      "wireless _first_" = {
+        position = 3;
+        settings = {
+          format_up = "%ip";
+          format_down = "no wifi";
         };
       };
     };
