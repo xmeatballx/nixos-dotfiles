@@ -261,6 +261,10 @@ in
         position = 3;
         settings = {
           format = "%status %percentage";
+          status_chr = "⚡";
+          status_bat = "🔋";
+          status_unk = "?";
+          status_full = "☻";
         };
       };
     };
