@@ -206,6 +206,10 @@ in
     };
     extraConfig = ''
       for_window [class="Google-chrome"] border pixel 0
+      bar {
+        status_command i3status
+        font pango:JetBrainsMono 10
+      }
     '';
   };
 
