@@ -244,7 +244,7 @@ in
     enable = true;
     enableDefault = false;
     general = {
-      font = "JetBrainsMono 10";
+      font = "JetBrainsMono:size=10";
     };
     modules = {
       "tztime local" = {
