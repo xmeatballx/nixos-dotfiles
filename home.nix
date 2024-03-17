@@ -250,7 +250,7 @@ in
           format = "%I:%M %m-%d-%Y";
         };
       };
-      "wireless wlan0" = {
+      "wireless _first_" = {
         position = 2;
         settings = {
           format_up = "%ip";
@@ -260,7 +260,7 @@ in
       "battery 0" = {
         position = 3;
         settings = {
-          format = "%status %remaining";
+          format = "%status %percentage";
         };
       };
     };
