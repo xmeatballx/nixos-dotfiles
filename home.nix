@@ -247,7 +247,19 @@ in
       "tztime local" = {
         position = 1;
         settings = {
-          format = "%Y-%m-%d %H:%M";
+          format = "%I:%M %m-%d-%Y";
+        };
+      };
+      wlan0 = {
+        position = 2;
+        settings = {
+          format = "%ip";
+        };
+      };
+      "battery 0" = {
+        position = 3;
+        settings = {
+          format = "%status %remaining";
         };
       };
     };
