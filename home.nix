@@ -250,7 +250,7 @@ in
           format = "%I:%M %m-%d-%Y";
         };
       };
-      wireless = {
+      "wireless wlan0" = {
         position = 2;
         settings = {
           format = "%ip";
