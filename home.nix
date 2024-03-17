@@ -206,6 +206,9 @@ in
     };
     extraConfig = ''
       for_window [class="Google-chrome"] border pixel 0
+      bar {
+        font pango:JetBrainsMono 10
+      }
     '';
   };
 
@@ -243,9 +246,6 @@ in
   programs.i3status = {
     enable = true;
     enableDefault = false;
-    general = {
-      font = "JetBrainsMono:size=10";
-    };
     modules = {
       "tztime local" = {
         position = 1;
