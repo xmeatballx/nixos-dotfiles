@@ -2,16 +2,22 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
+      ./laptop-hardware-configuration.nix
     ];    
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.enableIPv6  = false;
 
   time.timeZone = "America/New_York";
 
@@ -31,6 +37,7 @@
 
   services.xserver = {
     enable = true;
+    libinput.touchpad.naturalScrolling  = true;
 
     desktopManager = {
       xterm.enable = false;
@@ -53,10 +60,16 @@
     };
   };
 
-
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "${pkgs.i3-gaps}/bin/i3";
-  services.xrdp.openFirewall = true;
+  services.pipewire = {
+    enable = true;
+    audio.enable = true;
+    pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    jack.enable = true;
+  };
 
   users.users.meatball = {
     isNormalUser = true;
@@ -65,7 +78,12 @@
     packages = with pkgs; [];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
 
   virtualisation.docker.enable = true;
 
@@ -76,6 +94,7 @@
      docker-compose
      nodejs_21
      wget
+     pamixer
   ];
 
   fonts.packages = with pkgs; [
@@ -96,9 +115,9 @@
 
   users.users.meatball.shell = pkgs.zsh;
 
+
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
-
 
   services.nginx = {
      enable = true;
@@ -119,6 +138,18 @@
      };
   };
   
+  programs.git = {
+    enable = true;
+    config = {
+      init = {
+          defaultBranch = "main";
+      };
+      credential.helper = "store";
+    };
+  };  
+
+  programs.nm-applet.enable = true;
+
   security.acme = {
     acceptTerms = true;
     defaults.email = "erik.rjensen@yahoo.com";
@@ -126,6 +157,11 @@
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.allowedUDPPorts = [ 80 443 ];
+  networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
+
+  services.avahi.enable = true;
+
+  services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

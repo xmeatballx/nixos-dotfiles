@@ -1,14 +1,16 @@
-{ config, pkgs, ... }:
-let 
-  rosewater="#f5e0dc";
-  peach    ="#fab387";
-  lavender ="#b4befe";
-  text     ="#cdd6f4";
-  overlay0 ="#6c7086";
-  base     ="#1e1e2e";
-  wallpaper=./config/wallpapers/nix_dark.png;
-  mod      ="Mod4";
-in 
+{ config, pkgs, lib, ... }:
+let
+  rosewater = "#f5e0dc";
+  peach = "#fab387";
+  lavender = "#b4befe";
+  text = "#cdd6f4";
+  overlay0 = "#6c7086";
+  base = "#1e1e2e";
+  wallpaper = ./config/wallpapers/nix_dark.png;
+  mod = "Mod4";
+  toLua = str: "lua << EOF\n${str}\nEOF\n";
+  toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+in
 {
   home.username = "meatball";
   home.homeDirectory = "/home/meatball";
@@ -20,7 +22,7 @@ in
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   nixpkgs = {
     config = {
@@ -39,59 +41,62 @@ in
     slack
     discord
     brightnessctl
+    ripgrep
+    typescript
+    jellyfin-media-player
 
     (pkgs.writeShellScriptBin "reconfig" ''
-      function showProgress() {
-        local command="$1"
-        local commonName="$2"
-        local FRAMES="/ | \\ -"
-        local status=0
+           function showProgress() {
+             local command="$1"
+             local commonName="$2"
+             local FRAMES="/ | \\ -"
+             local status=0
 
-        $command &> nixos-switch.log || (cat nixos-switch.log | grep --color error && false) & pid=$!
+             $command &> nixos-switch.log || (cat nixos-switch.log | grep --color error && false) & pid=$!
 
-        while ps -p $pid > /dev/null; do
-            for frame in $FRAMES; do
-                printf "\r$frame Syncing $commonName configuration..."
-                sleep 0.2
-            done
-            if ! kill -0 $pid 2>/dev/null; then
-                wait $pid
-                status=$?
-                break
-            fi
-        done
+             while ps -p $pid > /dev/null; do
+                 for frame in $FRAMES; do
+                     printf "\r$frame Syncing $commonName configuration..."
+                     sleep 0.2
+                 done
+                 if ! kill -0 $pid 2>/dev/null; then
+                     wait $pid
+                     status=$?
+                     break
+                 fi
+             done
 
-        if [ $status -eq 0 ]; then
-            printf "\r$GREEN✓$NC Syncing $commonName configuration...$GREEN [Success!]$NC\n"
-        else
-            printf "\r$RED×$NC Syncing $commonName configuration...$RED [Failed!]$NC\n"
-        fi
-        printf "\n"
-      }
+             if [ $status -eq 0 ]; then
+                 printf "\r$GREEN✓$NC Syncing $commonName configuration...$GREEN [Success!]$NC\n"
+             else
+                 printf "\r$RED×$NC Syncing $commonName configuration...$RED [Failed!]$NC\n"
+             fi
+             printf "\n"
+           }
 
-      pushd ~/nixos-dotfiles &> /dev/null
-      nvim .
-      git diff -U0
-      showProgress "home-manager switch --flake .#meatball" "Home-Manager"
+           pushd ~/nixos-dotfiles &> /dev/null
+           nvim .
+           git diff -U0
+           showProgress "home-manager switch --flake .#meatball" "Home-Manager"
       
-      read -s -p "Enter sudo password: " sudo_password
+           read -s -p "Enter sudo password: " sudo_password
 
-      showProgress "echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop"
-      rm nixos-switch.log
-      gen=$(nixos-rebuild list-generations | grep current);
-      git commit -am "$gen"
-      popd &> /dev/null
+           showProgress "echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop"
+           rm nixos-switch.log
+           gen=$(nixos-rebuild list-generations | grep current);
+           git commit -am "$gen"
+           popd &> /dev/null
     '')
   ];
 
   home.file = {
-    ".config/nvim" = {
-      source = ./config/nvim;
-      recursive = true;
-    };
+    # ".config/nvim" = {
+    #   source = ./config/nvim;
+    #   recursive = true;
+    # };
 
     ".background-image" = {
-        source = "${wallpaper}";
+      source = "${wallpaper}";
     };
 
     #".config/i3status/config" = {
@@ -132,10 +137,10 @@ in
         "${mod}+Shift+space" = "floating toggle";
         "${mod}+Shift+c" = "kill";
         "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
-#        "${mod}+Shift+e" = "reload";
+        #        "${mod}+Shift+e" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+Shift+q" = "kill";
-        "${mod}+d"= "exec dmenu_run";
+        "${mod}+d" = "exec dmenu_run";
 
         "${mod}+Shift+1" = "move container workspace 1";
         "${mod}+Shift+2" = "move container workspace 2";
@@ -171,7 +176,7 @@ in
           position = "top";
           statusCommand = "i3status";
           fonts = {
-            names = [ "JetBrainsMono"];
+            names = [ "JetBrainsMono" ];
             size = 11.0;
           };
         }
@@ -192,7 +197,7 @@ in
           indicator = "${rosewater}";
           childBorder = "${overlay0}";
         };
-        unfocused = { 
+        unfocused = {
           border = "${overlay0}";
           background = "${base}";
           text = "${text}";
@@ -206,7 +211,7 @@ in
           indicator = "${overlay0}";
           childBorder = "${peach}";
         };
-        placeholder = { 
+        placeholder = {
           border = "${overlay0}";
           background = "${base}";
           text = "${text}";
@@ -230,8 +235,61 @@ in
     extraConfig = '' enable_audio_bell no '';
   };
 
-  programs.neovim = { 
+  programs.neovim = {
     enable = true;
+    extraLuaConfig = '' ${builtins.readFile ./config/nvim-nix/init.lua} '';
+    extraPackages = with pkgs; [
+      lua-language-server
+      rnix-lsp
+      nodePackages.typescript-language-server
+
+      xclip
+      wl-clipboard
+    ];
+    plugins = with pkgs.vimPlugins; [
+      telescope-fzf-native-nvim
+      neo-tree-nvim
+      {
+        plugin = bufferline-nvim;
+        config = '' '';
+      }
+      {
+        plugin = vim-sleuth;
+        config = toLua "require(\'bufferline\').setup()";
+      }
+      {
+        plugin = comment-nvim;
+        config = '' '';
+      }
+      {
+        plugin = telescope-nvim;
+        config = toLuaFile ./config/nvim-nix/plugins/telescope.lua;
+      }
+      {
+        plugin = nvim-lspconfig;
+        config = toLuaFile ./config/nvim-nix/plugins/lsp.lua;
+      }
+      {
+        plugin = (nvim-treesitter.withPlugins (p: [
+          p.tree-sitter-nix
+          p.tree-sitter-vim
+          p.tree-sitter-bash
+          p.tree-sitter-lua
+          p.tree-sitter-python
+          p.tree-sitter-json
+          p.tree-sitter-css
+          p.tree-sitter-html
+          p.tree-sitter-javascript
+          p.tree-sitter-typescript
+          p.tree-sitter-svelte
+        ]));
+        config = '' '';
+      }
+      {
+        plugin = catppuccin-nvim;
+        config = "colorscheme catppuccin-mocha";
+      }
+    ];
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -252,7 +310,7 @@ in
         settings = {
           format = "%I:%M %p %m-%d-%Y";
         };
-      }; 
+      };
       "volume master" = {
         position = 1;
         settings = {
@@ -288,6 +346,8 @@ in
     fade = true;
     opacityRules = [ "100:class_g = 'Google-chrome'" ];
   };
+
+  services.blueman-applet.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
