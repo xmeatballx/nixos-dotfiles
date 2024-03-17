@@ -239,6 +239,18 @@ in
     fade = true;
     opacityRules = [ "100:class_g = 'Google-chrome'" ];
   };
+
+  programs.i3status = {
+    enable = true;
+    modules = {
+      "tztime local" = {
+        position = 1;
+        settings = {
+          format = "%Y-%m-%d %H:%M";
+        };
+      };
+    };
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
