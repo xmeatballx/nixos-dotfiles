@@ -94,8 +94,8 @@ in
         source = "${wallpaper}";
     };
 
-    ".config/picom/default.conf" = {
-        source = ./config/picom/default.conf;
+    ".config/i3status/config" = {
+      source = ./config/i3status/config;
     };
   };
 
@@ -165,6 +165,16 @@ in
         "XF86MonBrightnessUp" = "exec brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec brightnessctl set 10%- -n 100";
       };
+      bars = [
+        {
+          position = "top";
+          statusCommand = "i3status";
+          fonts = {
+            names = [ "JetBrainsMono"];
+            size = 11.0;
+          };
+        }
+      ];
       colors = {
         background = "${base}";
         focused = {
@@ -206,10 +216,6 @@ in
     };
     extraConfig = ''
       for_window [class="Google-chrome"] border pixel 0
-      bar {
-        status_command i3status
-        font pango:JetBrainsMono 10
-      }
     '';
   };
 
@@ -244,35 +250,6 @@ in
     opacityRules = [ "100:class_g = 'Google-chrome'" ];
   };
 
-  programs.i3status = {
-    enable = true;
-    enableDefault = false;
-    modules = {
-      "tztime local" = {
-        position = 1;
-        settings = {
-          format = "%I:%M %p  %m-%d-%Y";
-        };
-      };
-      "battery 0" = {
-        position = 2;
-        settings = {
-          format = "%status %percentage";
-          status_chr = "⚡";
-          status_bat = "🔋";
-          status_unk = "?";
-          status_full = "☻";
-        };
-      };
-      "wireless _first_" = {
-        position = 3;
-        settings = {
-          format_up = "%ip";
-          format_down = "no wifi";
-        };
-      };
-    };
-  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

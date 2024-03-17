@@ -1,0 +1,23 @@
+general {
+  output_format = "i3bar"
+}
+
+order += "tztime local"
+order += "battery 0"
+order += "wireless _first_"
+battery 0 {
+  format = "%status %percentage"
+  status_bat = "🔋"
+  status_chr = "⚡"
+  status_full = "☻"
+  status_unk = "?"
+}
+
+tztime local {
+  format = "%I:%M %p  %m-%d-%Y"
+}
+
+wireless _first_ {
+  format_down = "no wifi"
+  format_up = "%ip"
+}
