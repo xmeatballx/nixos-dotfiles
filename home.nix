@@ -247,7 +247,7 @@ in
       "tztime local" = {
         position = 1;
         settings = {
-          format = "%I:%M %Z  %m-%d-%Y";
+          format = "%I:%M %p  %m-%d-%Y";
         };
       };
       "wireless _first_" = {
