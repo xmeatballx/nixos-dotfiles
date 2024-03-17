@@ -252,6 +252,14 @@ in
           format = "%I:%M %p %m-%d-%Y";
         };
       }; 
+      "volume master" = {
+        position = 1;
+        settings = {
+          format = "♪ %volume";
+          format_muted = "♪ muted (%volume)";
+          device = "pulse:1";
+        };
+      };
       "battery all" = {
         position = 2;
         settings = {
