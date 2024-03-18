@@ -47,15 +47,15 @@ in
         "${mod}+d" = "exec dmenu_run";
 
         "${mod}+Shift+1" = "exec i3-msg move container workspace 1 && i3-msg workspace 1";
-        "${mod}+Shift+2" = "move container workspace 2";
-        "${mod}+Shift+3" = "move container workspace 3";
-        "${mod}+Shift+4" = "move container workspace 4";
-        "${mod}+Shift+5" = "move container workspace 5";
-        "${mod}+Shift+6" = "move container workspace 6";
-        "${mod}+Shift+7" = "move container workspace 7";
-        "${mod}+Shift+8" = "move container workspace 8";
-        "${mod}+Shift+9" = "move container workspace 9";
-        "${mod}+Shift+0" = "move container workspace 10";
+        "${mod}+Shift+2" = "exec i3-msg move container workspace 2 && i3-msg workspace 2";
+        "${mod}+Shift+3" = "exec i3-msg move container workspace 3 && i3-msg workspace 3";
+        "${mod}+Shift+4" = "exec i3-msg move container workspace 4 && i3-msg workspace 4";
+        "${mod}+Shift+5" = "exec i3-msg move container workspace 5 && i3-msg workspace 5";
+        "${mod}+Shift+6" = "exec i3-msg move container workspace 6 && i3-msg workspace 6";
+        "${mod}+Shift+7" = "exec i3-msg move container workspace 7 && i3-msg workspace 7";
+        "${mod}+Shift+8" = "exec i3-msg move container workspace 8 && i3-msg workspace 8";
+        "${mod}+Shift+9" = "exec i3-msg move container workspace 9 && i3-msg workspace 9";
+        "${mod}+Shift+0" = "exec i3-msg move container workspace 0 && i3-msg workspace 0";
 
         "${mod}+1" = "workspace 1";
         "${mod}+2" = "workspace 2";
