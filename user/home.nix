@@ -179,6 +179,7 @@ in
             names = [ "JetBrainsMono" ];
             size = 11.0;
           };
+          trayOutput = "primary";
         }
       ];
       colors = {
@@ -348,6 +349,12 @@ in
   };
 
   services.blueman-applet.enable = true;
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
