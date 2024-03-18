@@ -46,7 +46,7 @@ in
         "${mod}+Shift+q" = "kill";
         "${mod}+d" = "exec dmenu_run";
 
-        "${mod}+Shift+1" = "move container workspace 1";
+        "${mod}+Shift+1" = "exec i3-msg move container workspace 1 && i3-msg workspace 1";
         "${mod}+Shift+2" = "move container workspace 2";
         "${mod}+Shift+3" = "move container workspace 3";
         "${mod}+Shift+4" = "move container workspace 4";
