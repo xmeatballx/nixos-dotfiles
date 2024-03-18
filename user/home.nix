@@ -44,6 +44,7 @@ in
     ripgrep
     typescript
     jellyfin-media-player
+    mongodb-compass
 
     (pkgs.writeShellScriptBin "reconfig" ''
            function showProgress() {
