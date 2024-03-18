@@ -1,5 +1,5 @@
 {
   imports = [
-    ./reconfig
+    ./reconfig.nix
   ];
 }

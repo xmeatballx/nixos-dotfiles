@@ -7,6 +7,7 @@ in
     ./i3
     ./programs
     ./services
+    ./scripts
   ];
   home.username = "meatball";
   home.homeDirectory = "/home/meatball";
