@@ -6,7 +6,7 @@ in
 {
   programs.neovim = {
     enable = true;
-    extraLuaConfig = '' ${builtins.readFile ../config/nvim-nix/init.lua} '';
+    extraLuaConfig = '' ${builtins.readFile ../config/nvim/init.lua} '';
     extraPackages = with pkgs; [
       cmake
       gcc
@@ -36,11 +36,11 @@ in
       }
       {
         plugin = telescope-nvim;
-        config = toLuaFile ../config/nvim-nix/plugins/telescope.lua;
+        config = toLuaFile ../config/nvim/plugins/telescope.lua;
       }
       {
         plugin = nvim-lspconfig;
-        config = toLuaFile ../config/nvim-nix/plugins/lsp.lua;
+        config = toLuaFile ../config/nvim/plugins/lsp.lua;
       }
       {
         plugin = (nvim-treesitter.withPlugins (p: [
