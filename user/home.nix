@@ -83,7 +83,7 @@ in
            nvim .
            git diff -U0
            showProgress "home-manager switch --flake .#meatball" "Home-Manager"
-           showProgress "nixos-rebuild switch --flake .#nixos-laptop"
+           showProgress "nixos-rebuild switch --flake .#nixos-laptop" "System"
            rm nixos-switch.log
            gen=$(nixos-rebuild list-generations | grep current);
            git commit -am "$gen"
