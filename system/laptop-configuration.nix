@@ -14,7 +14,6 @@
     enable = true;
     powerOnBoot = true;
   };
-  hardware.pulseaudio.enable = true;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
