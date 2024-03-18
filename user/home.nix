@@ -39,7 +39,7 @@ in
     typescript
     jellyfin-media-player
     mongodb-compass
-
+    dunst
   ];
 
   home.file = {
