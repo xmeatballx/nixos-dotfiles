@@ -79,9 +79,10 @@ in
            git diff -U0
            showProgress "home-manager switch --flake .#meatball" "Home-Manager"
       
-           read -s -p "Enter sudo password: " sudo_password
+           #read -s -p "Enter sudo password: " sudo_password
 
-           showProgress "echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop"
+           #showProgress "echo "$sudo_password" | sudo -S nixos-rebuild switch --flake .#nixos-laptop"
+           showProgress "sudo -n nixos-rebuild switch --flake .#nixos-laptop"
            rm nixos-switch.log
            gen=$(nixos-rebuild list-generations | grep current);
            git commit -am "$gen"
