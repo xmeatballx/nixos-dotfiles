@@ -53,8 +53,9 @@ in
              local status=0
 
              if [ $commonName == "System" ]; then
-               read -s -p "Enter sudo password: " sudo_password
-               echo "$sudo_password" | sudo -S $command 
+               #read -s -p "Enter sudo password: " sudo_password
+               #echo "$sudo_password" | 
+               sudo -A $command 
                #&> nixos-switch.log || (cat nixos-switch.log | grep --color error && false) & pid=$!
              else
                $command &> nixos-switch.log || (cat nixos-switch.log | grep --color error && false) & pid=$!
