@@ -2,7 +2,7 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
+      ./hardware/hardware-configuration.nix
       ./common.nix
   ];    
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
