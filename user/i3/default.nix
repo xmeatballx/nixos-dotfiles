@@ -41,6 +41,7 @@ in
         "${mod}+Shift+space" = "floating toggle";
         "${mod}+Shift+c" = "kill";
         "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
+        "${mod}+Shift+t" = "workspace toggle tabbed splitv";
         #        "${mod}+Shift+e" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+Shift+q" = "kill";
