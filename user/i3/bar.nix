@@ -20,7 +20,6 @@ in
         focused_workspace ="${base} ${base} ${rosewater}";
         inactive_workspace="${base} ${base} ${overlay0}";
         urgent_workspace  ="${base} ${base} ${overlay0}";
-        binding_mode      ="${base} ${base} ${overlay0}";
       };
     }
   ];
