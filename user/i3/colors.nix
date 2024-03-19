@@ -41,33 +41,4 @@ in
       childBorder = "${overlay0}";
     };
   };
-
-  xsession.windowManager.i3.config.bars.colors = with colors; {
-    colors = {
-      background = "${base}";
-      statusline = "${text}";
-      focusedStatusline = "${text}";
-      focusedSeparator = "${base}";
-      focusedWorkspace = {
-        border = "${base}";
-        background = "${base}";
-        text = "${rosewater}";
-      };
-      inactiveWorkspace = {
-        border = "${base}";
-        background = "${base}";
-        text = "${surface1}";
-      };
-      urgentWorkspace = {
-        border = "${base}";
-        background = "${base}";
-        text = "${surface1}";
-      };
-      bindingMode = {
-        border = "${base}";
-        background = "${base}";
-        text = "${surface1}";
-      };
-    };
-  };
 }
