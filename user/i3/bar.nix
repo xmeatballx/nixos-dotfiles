@@ -16,7 +16,6 @@ in
         background        ="${base}";
         statusline        ="${text}";
         focused_statusline="${text}";
-        active_workspace  ="${base} ${text} ${lavender}";
         focused_separator ="${base}";
         focused_workspace ="${base} ${base} ${rosewater}";
         inactive_workspace="${base} ${base} ${surface1}";
