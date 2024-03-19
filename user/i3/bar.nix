@@ -13,11 +13,30 @@ in
       };
       trayOutput = "primary";
       colors = {
-        background        ="${base}";
-        statusline        ="${text}";
-        focused_workspace ="${base} ${base} ${rosewater}";
-        inactive_workspace="${base} ${base} ${overlay0}";
-        urgent_workspace  ="${base} ${base} ${overlay0}";
+        background = "${base}";
+        statusline = "${text}";
+        focusedStatusline = "${text}";
+        focusedSeparator = "${base}";
+        focusedWorkspace = {
+          border = "${base}";
+          text = "${base}";
+          separator = "${rosewater}";
+        };
+        inactiveWorkspace = {
+          border = "${base}";
+          text = "${base}";
+          separator = "${overlay0}";
+        };
+        urgentWorkspace = {
+          border = "${base}";
+          text = "${base}";
+          separator = "${overlay0}";
+        };
+        bindingMode = {
+          border = "${base}";
+          text = "${base}";
+          separator = "${overlay0}";
+        };
       };
     }
   ];
