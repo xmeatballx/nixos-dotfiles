@@ -18,10 +18,15 @@ in
         statusline = "${text}";
         focusedStatusline = "${text}";
         focusedSeparator = "${base}";
+        activeWorkspace = {
+          border = "${base}";
+          background = "${text}";
+          text = "${blue}";
+        };
         focusedWorkspace = {
           border = "${base}";
           background = "${base}";
-          text = "${rosewater}";
+          text = "${green}";
         };
         inactiveWorkspace = {
           border = "${base}";
