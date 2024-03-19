@@ -30,16 +30,23 @@ in
 
   home.packages = with pkgs; [
     kitty
-    image-roll
     neofetch
+    
+    brightnessctl
+    dunst #notification daemon
+    pavucontrol #sound settings GUI
+
+    image-roll #image viewer
+
     google-chrome
+    spotify
+    jellyfin-media-player
+
     slack
     discord
-    brightnessctl
-    typescript
-    jellyfin-media-player
+
     mongodb-compass
-    dunst
+    typescript
   ];
 
   home.file = {

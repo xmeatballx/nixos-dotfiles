@@ -5,6 +5,7 @@
     ./keybindings.nix
     ./colors.nix
     ./bar.nix
+    ./i3status.nix
   ];
     
   xsession.windowManager.i3 = {
