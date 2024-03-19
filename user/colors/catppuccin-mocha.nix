@@ -4,5 +4,6 @@
   lavender = "#b4befe";
   text = "#cdd6f4";
   overlay0 = "#6c7086";
+  surface1 = "#45475a";
   base = "#1e1e2e";
 }
