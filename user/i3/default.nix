@@ -18,6 +18,9 @@
         outer = 1;
         smartGaps = true;
       };
+      focus = {
+        newWindow = "focus";
+      };
     };
     extraConfig = ''
       for_window [class="Google-chrome"] border pixel 0
