@@ -40,6 +40,7 @@ in
 
     google-chrome
     spotify
+    spotify-tray
     jellyfin-media-player
 
     slack
