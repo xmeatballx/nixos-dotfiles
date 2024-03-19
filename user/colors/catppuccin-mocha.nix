@@ -3,6 +3,7 @@
   peach = "#fab387";
   lavender = "#b4befe";
   green = "#a6e3a1";
+  blue = "#89b4fa";
   text = "#cdd6f4";
   overlay0 = "#6c7086";
   surface1 = "#45475a";
