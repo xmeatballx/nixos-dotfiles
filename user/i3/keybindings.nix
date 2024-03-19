@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
-
+let 
+  mod = "Mod4";
+in
 {
+  xsession.windowManager.i3.config.modifier = "Mod4";
   xsession.windowManager.i3.config.keybindings = with pkgs; {
     "${mod}+h" = "focus left";
     "${mod}+j" = "focus down";
