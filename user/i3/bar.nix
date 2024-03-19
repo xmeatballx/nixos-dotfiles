@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  bars = [
+  xsession.windowManager.i3.config.bars = [
     {
       position = "top";
       statusCommand = "i3status";
