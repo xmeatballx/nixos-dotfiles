@@ -35,7 +35,6 @@ in
         bindingMode = {
           border = "${base}";
           text = "${base}";
-          separator = "${overlay0}";
         };
       };
     }
