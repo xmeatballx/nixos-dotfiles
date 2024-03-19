@@ -16,9 +16,9 @@ in
         background        ="${base}";
         statusline        ="${text}";
         focused_statusline="${text}";
-        active_workspace  ="${base} ${text} ${blue}";
+        active_workspace  ="${base} ${text} ${lavender}";
         focused_separator ="${base}";
-        focused_workspace ="${base} ${base} ${green}";
+        focused_workspace ="${base} ${base} ${rosewater}";
         inactive_workspace="${base} ${base} ${surface1}";
         urgent_workspace  ="${base} ${base} ${surface1}";
         binding_mode      ="${base} ${base} ${surface1}";
