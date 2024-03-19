@@ -37,6 +37,7 @@
      docker-compose
      nodejs_21
      wget
+     htop
   ];
 
   users.users.meatball = {

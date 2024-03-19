@@ -37,7 +37,6 @@
         dmenu
         i3status
         i3lock
-        feh
         picom
      ];
     };
