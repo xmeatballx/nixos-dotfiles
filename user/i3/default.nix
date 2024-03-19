@@ -13,7 +13,7 @@
       terminal = "kitty";
       gaps = {
         inner = 5;
-        outer = 2;
+        outer = 1;
         smartGaps = true;
       };
     };
