@@ -14,6 +14,7 @@ in
       lua-language-server
       rnix-lsp
       nodePackages.typescript-language-server
+      nodePackages.svelte-language-server
       
       ripgrep
       xclip

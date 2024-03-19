@@ -3,6 +3,7 @@ local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup {}
 lspconfig.rnix.setup {}
 lspconfig.tsserver.setup {}
+lspconfig.svelte_language_server.setup {}
 
 
 -- Global mappings.
