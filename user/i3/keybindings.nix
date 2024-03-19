@@ -27,7 +27,7 @@ in
     #        "${mod}+Shift+e" = "reload";
     "${mod}+Shift+r" = "restart";
     "${mod}+Shift+q" = "kill";
-    "${mod}+d" = "exec dmenu_run";
+    "${mod}+space" = "exec dmenu_run";
 
     "${mod}+Shift+1" = "exec i3-msg move container workspace 1 && i3-msg workspace 1";
     "${mod}+Shift+2" = "exec i3-msg move container workspace 2 && i3-msg workspace 2";
