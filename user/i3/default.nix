@@ -1,12 +1,10 @@
 { config, pkgs, lib, ... }:
-let 
-  mod = "Mod4";
-in
 {
 #  home.packages = [ pkgs.i3-gaps ];
   imports = [
     ./keybindings.nix
     ./colors.nix
+    ./bar.nix
   ];
     
   xsession.windowManager.i3 = {
@@ -19,17 +17,6 @@ in
         outer = 2;
         smartGaps = true;
       };
-      bars = [
-        {
-          position = "top";
-          statusCommand = "i3status";
-          fonts = {
-            names = [ "JetBrainsMono" ];
-            size = 11.0;
-          };
-          trayOutput = "primary";
-        }
-      ];
     };
     extraConfig = ''
       for_window [class="Google-chrome"] border pixel 0
