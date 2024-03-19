@@ -2,6 +2,6 @@
 
 {
   xsession.windowManager.i3.config.startup = [
-    { command = "spotify-tray"; }
+    { command = "spotify-tray -m"; }
   ];
 }
