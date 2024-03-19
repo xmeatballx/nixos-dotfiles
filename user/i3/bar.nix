@@ -15,7 +15,6 @@ in
       colors = {
         background        ="${base}";
         statusline        ="${text}";
-        focused_statusline="${text}";
         focused_workspace ="${base} ${base} ${rosewater}";
         inactive_workspace="${base} ${base} ${overlay0}";
         urgent_workspace  ="${base} ${base} ${overlay0}";
