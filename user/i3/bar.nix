@@ -3,7 +3,7 @@ let
   colors = import ../colors/catppuccin-mocha.nix;
 in
 {
-  xsession.windowManager.i3.config.bars = [
+  xsession.windowManager.i3.config.bars = with colors; [
     {
       position = "top";
       statusCommand = "i3status";
@@ -19,7 +19,6 @@ in
         active_workspace  ="${base} ${text} ${blue}";
         focused_separator ="${base}";
         focused_workspace ="${base} ${base} ${green}";
-        active_workspace  ="${base} ${base} ${blue}";
         inactive_workspace="${base} ${base} ${surface1}";
         urgent_workspace  ="${base} ${base} ${surface1}";
         binding_mode      ="${base} ${base} ${surface1}";
