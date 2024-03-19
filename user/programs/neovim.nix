@@ -57,7 +57,7 @@ in
           p.tree-sitter-typescript
           p.tree-sitter-svelte
         ]));
-        config = '' '';
+        config = toLuaFile ../config/nvim/treesitter.lua;
       }
       {
         plugin = catppuccin-nvim;
