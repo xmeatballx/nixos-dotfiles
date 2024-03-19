@@ -18,9 +18,9 @@ in
         focused_statusline="${text}";
         focused_separator ="${base}";
         focused_workspace ="${base} ${base} ${rosewater}";
-        inactive_workspace="${base} ${base} ${surface1}";
-        urgent_workspace  ="${base} ${base} ${surface1}";
-        binding_mode      ="${base} ${base} ${surface1}";
+        inactive_workspace="${base} ${base} ${overlay0}";
+        urgent_workspace  ="${base} ${base} ${overlay0}";
+        binding_mode      ="${base} ${base} ${overlay0}";
       };
     }
   ];
