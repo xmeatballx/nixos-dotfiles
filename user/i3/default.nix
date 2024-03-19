@@ -6,6 +6,7 @@
     ./colors.nix
     ./bar.nix
     ./i3status.nix
+    ./startup.nix
   ];
     
   xsession.windowManager.i3 = {
