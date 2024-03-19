@@ -19,22 +19,23 @@ in
         focusedSeparator = "${base}";
         focusedWorkspace = {
           border = "${base}";
-          text = "${base}";
-          separator = "${rosewater}";
+          background = "${base}";
+          text = "${rosewater}";
         };
         inactiveWorkspace = {
           border = "${base}";
-          text = "${base}";
-          separator = "${overlay0}";
+          background = "${base}";
+          text = "${overlay0}";
         };
         urgentWorkspace = {
           border = "${base}";
-          text = "${base}";
-          separator = "${overlay0}";
+          background = "${base}";
+          text = "${overlay0}";
         };
         bindingMode = {
           border = "${base}";
-          text = "${base}";
+          background = "${base}";
+          text = "${overlay0}";
         };
       };
     }
