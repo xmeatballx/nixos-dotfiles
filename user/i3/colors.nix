@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  colors = import ./colors/catpuccin-mocha;
+  colors = import ../colors/catppuccin-mocha.nix;
 in
 {
   xsession.windowManager.i3.config.colors = with colors; {
