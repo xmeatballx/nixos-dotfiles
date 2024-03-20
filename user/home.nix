@@ -32,7 +32,7 @@ in
     kitty
     neofetch
     btop
-    dust
+    du-dust
     bat
     
     brightnessctl
