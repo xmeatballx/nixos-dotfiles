@@ -31,6 +31,9 @@ in
   home.packages = with pkgs; [
     kitty
     neofetch
+    btop
+    dust
+    bat
     
     brightnessctl
     dunst #notification daemon
