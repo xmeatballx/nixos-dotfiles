@@ -1,10 +1,10 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.rofi = {
     enable = true;
     theme = "DarkBlue";    
-    extraPackages = [
+    extraPackages = with pkgs; [
       rofi-screenshot
     ];
   };
