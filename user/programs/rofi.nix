@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home-manager.packages = [
+  home.packages = [
     pkgs.rofi-screenshot
   ];
   programs.rofi = {
