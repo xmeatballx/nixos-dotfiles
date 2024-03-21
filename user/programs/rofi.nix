@@ -4,7 +4,7 @@
   programs.rofi = {
     enable = true;
     theme = "DarkBlue";    
-    extraPackages = with pkgs; [
+    plugins = with pkgs; [
       rofi-screenshot
     ];
   };
