@@ -4,6 +4,17 @@ lspconfig.lua_ls.setup {}
 lspconfig.rnix.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.svelte.setup {}
+lspconfig.efm.setup {
+    init_options = {documentFormatting = true},
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            lua = {
+                {formatCommand = "lua-format -i", formatStdin = true}
+            }
+        }
+    }
+}
 
 
 -- Global mappings.
