@@ -78,28 +78,7 @@
     jack.enable = true;
   };
 
-  services.logind.lidSwitch = "ignore";
-  services.acpid = {
-    enable = true;
-    lidEventCommands =
-    ''
-      export PATH=$PATH:/run/current-system/sw/bin
-
-      lid_state=$(cat /proc/acpi/button/lid/LID0/state | awk '{print $NF}')
-      if [ $lid_state = "closed" ]; then
-        # Set brightness to zero
-        brightnessctl set 0
-      else
-        # Reset the brightness
-        brightnessctl set 100%
-      fi
-    '';
-
-    powerEventCommands =
-    ''
-      systemctl suspend
-    '';
-  };
+  services.logind.lidSwitch = "suspend";
 
   environment.etc = {
     "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
