@@ -15,6 +15,7 @@ in
       rnix-lsp
       nodePackages.typescript-language-server
       nodePackages.svelte-language-server
+      efm-langserver
       
       ripgrep
       xclip
