@@ -39,7 +39,7 @@
        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
 
       };
-};
+  };
 
   networking.enableIPv6  = false;
 
@@ -88,10 +88,10 @@
       lid_state=$(cat /proc/acpi/button/lid/LID0/state | awk '{print $NF}')
       if [ $lid_state = "closed" ]; then
         # Set brightness to zero
-        echo 0  > /sys/class/backlight/acpi_video0/brightness
+        brightnessctl set 0
       else
         # Reset the brightness
-        echo 50  > /sys/class/backlight/acpi_video0/brightness
+        brightnessctl set 100%
       fi
     '';
 
