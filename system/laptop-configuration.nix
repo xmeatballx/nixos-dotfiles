@@ -17,7 +17,7 @@
     powerOnBoot = true;
   };
 
-  powerManagement.enable = true;
+  powerManagement.enable = false;
   hardware.nvidia = {
     modesetting.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -32,6 +32,8 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
+
+  services.logind.lidSwitch = "suspend";
 
   services.thermald.enable = true;
 
@@ -94,7 +96,6 @@
     jack.enable = true;
   };
 
-  services.logind.lidSwitch = "suspend";
 
   environment.etc = {
     "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
@@ -119,7 +120,6 @@
   environment.systemPackages = with pkgs; [
      pamixer
   ];
-
 
   programs.nm-applet.enable = true;
 
