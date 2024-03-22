@@ -20,8 +20,19 @@
   };
 
   powerManagement.enable = true;
-  hardware.nvidia.powerManagement.enable = true;
-  hardware.nvidia.open = false;
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    powerManagement.enable = true;
+    open = false;
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
 
   services.thermald.enable = true;
 
