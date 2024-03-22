@@ -9,7 +9,7 @@
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
-  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  #boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   # Making sure to use the proprietary drivers until the issue above is fixed upstream
   boot.loader.grub.useOSProber = true;
 
