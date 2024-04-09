@@ -1,10 +1,33 @@
-[sudo] password for meatball: warning: Git tree '/home/meatball/nixos-dotfiles' is dirty
-building the system configuration...
 warning: Git tree '/home/meatball/nixos-dotfiles' is dirty
-these 3 derivations will be built:
-  /nix/store/0q72hmlwk3kbl8qzzfmvvshlw97qdzv5-system-units.drv
-  /nix/store/l2r0060yq677yhlkyrl68hch7qgw35iy-etc.drv
-  /nix/store/f61m9kmvik4dvwjxiq7axk5rkgkm8x6v-nixos-system-nixos-23.11.20240305.880992d.drv
-building '/nix/store/0q72hmlwk3kbl8qzzfmvvshlw97qdzv5-system-units.drv'...
-building '/nix/store/l2r0060yq677yhlkyrl68hch7qgw35iy-etc.drv'...
-building '/nix/store/f61m9kmvik4dvwjxiq7axk5rkgkm8x6v-nixos-system-nixos-23.11.20240305.880992d.drv'...
+these 6 derivations will be built:
+  /nix/store/z4z8b36pwnq5773gs172hzbmab9y4q38-reconfig.drv
+  /nix/store/8q8ipgz6fnm9zyg7xa1addxfz3jl7krx-home-manager-path.drv
+  /nix/store/d8f30yfk3nvdhskws1jsi5h37z253z4w-hm_tmuxtmux.conf.drv
+  /nix/store/gxmlr21w85pbl9yl3ds2vslz8k0mvzyy-home-manager-files.drv
+  /nix/store/vi8wif3jyiciq3666af613mhn2fhi72g-activation-script.drv
+  /nix/store/ld1gfb1mdbgv1mzf6xp7cr9h2hz5kpaz-home-manager-generation.drv
+building '/nix/store/d8f30yfk3nvdhskws1jsi5h37z253z4w-hm_tmuxtmux.conf.drv'...
+building '/nix/store/z4z8b36pwnq5773gs172hzbmab9y4q38-reconfig.drv'...
+building '/nix/store/gxmlr21w85pbl9yl3ds2vslz8k0mvzyy-home-manager-files.drv'...
+building '/nix/store/8q8ipgz6fnm9zyg7xa1addxfz3jl7krx-home-manager-path.drv'...
+building '/nix/store/vi8wif3jyiciq3666af613mhn2fhi72g-activation-script.drv'...
+building '/nix/store/ld1gfb1mdbgv1mzf6xp7cr9h2hz5kpaz-home-manager-generation.drv'...
+Starting Home Manager activation
+Activating checkFilesChanged
+Activating checkLinkTargets
+Activating writeBoundary
+Activating installPackages
+replacing old 'home-manager-path'
+installing 'home-manager-path'
+building '/nix/store/b3f2z69ngjymc4z664ajir291yr12d8k-user-environment.drv'...
+Activating linkGeneration
+Cleaning up orphan links from /home/meatball
+Creating profile generation 20
+Creating home file links in /home/meatball
+Activating onFilesChange
+Activating reloadSystemd
+warning: Git tree '/home/meatball/nixos-dotfiles' is dirty
+
+There are 126 unread and relevant news items.
+Read them by running the command "home-manager news".
+

@@ -34,10 +34,12 @@ in
     btop
     du-dust
     bat
+    redis
     
     brightnessctl
     dunst #notification daemon
     pavucontrol #sound settings GUI
+    lxappearance #app theming
 
     image-roll #image viewer
 
@@ -51,6 +53,13 @@ in
 
     mongodb-compass
     typescript
+    bruno
+
+  (catppuccin-gtk.override {
+    size = "compact";
+    tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
+    variant = "mocha";
+  })
   ];
 
   home.file = {

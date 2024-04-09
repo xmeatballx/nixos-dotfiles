@@ -4,5 +4,6 @@
     ./kitty.nix
     ./neovim.nix
     ./rofi.nix
+    ./tmux.nix
   ];
 }

@@ -24,17 +24,16 @@ in
     plugins = with pkgs.vimPlugins; [
       telescope-fzf-native-nvim
       neo-tree-nvim
-      {
-        plugin = bufferline-nvim;
-        config = '' '';
-      }
+      bufferline-nvim
+      comment-nvim
+      efmls-configs-nvim
       {
         plugin = vim-sleuth;
         config = toLua "require(\'bufferline\').setup()";
       }
       {
-        plugin = comment-nvim;
-        config = '' '';
+        plugin = indent-blankline-nvim;
+        config = toLua "require(\'ibl\').setup()";
       }
       {
         plugin = telescope-nvim;
@@ -44,6 +43,15 @@ in
         plugin = nvim-lspconfig;
         config = toLuaFile ../config/nvim/plugins/lsp.lua;
       }
+      {
+        plugin = nvim-cmp;
+        config = toLuaFile ../config/nvim/plugins/cmp.lua;
+      }
+      cmp-buffer
+      cmp-path
+      luasnip
+      cmp_luasnip
+      friendly-snippets
       {
         plugin = (nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix

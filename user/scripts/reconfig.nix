@@ -40,8 +40,8 @@
 
            pushd ~/nixos-dotfiles &> /dev/null
            nvim .
-           git add .
            git diff -U0
+           git add .
            showProgress "home-manager switch --flake .#meatball" "Home-Manager"
            showProgress "nixos-rebuild switch --flake .#nixos-laptop" "System"
            rm nixos-switch.log

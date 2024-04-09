@@ -7,10 +7,13 @@
   ];    
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [
+    "i915.enable_fbc=1"
+    "i915.enable_psr=2"
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
 
   hardware.bluetooth = {
     enable = true;
@@ -33,9 +36,11 @@
     };
   };
 
-  services.logind.lidSwitch = "suspend";
+  services.logind.lidSwitch = "hibernate";
 
   services.thermald.enable = true;
+  services.fwupd.enable = true;
+  services.fstrim.enable = true;
 
   services.tlp = {
       enable = true;

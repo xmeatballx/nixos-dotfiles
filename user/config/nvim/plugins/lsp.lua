@@ -1,5 +1,29 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
+local eslint = require('efmls-configs.linters.eslint')
+local prettier = require('efmls-configs.formatters.prettier')
+local stylua = require('efmls-configs.formatters.stylua')
+local languages = {
+  typescript = { eslint, prettier },
+  lua = { stylua },
+}
+
+lspconfig.rnix.setup {}
+lspconfig.tsserver.setup {}
+lspconfig.svelte.setup {}
+
+lspconfig.efm.setup {
+  filetypes = vim.tbl_keys(languages),
+  settings = {
+    rootMarkers = { '.git/' },
+    languages = languages,
+  },
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  },
+}
+
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
@@ -25,21 +49,6 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
-
-lspconfig.rnix.setup {}
-lspconfig.tsserver.setup {}
-lspconfig.svelte.setup {}
-lspconfig.efm.setup {
-    init_options = {documentFormatting = true},
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {
-                {formatCommand = "lua-format -i", formatStdin = true}
-            }
-        }
-    }
 }
 
 
