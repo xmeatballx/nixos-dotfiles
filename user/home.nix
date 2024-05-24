@@ -29,13 +29,15 @@ in
   };
 
   home.packages = with pkgs; [
+    glib
+
     kitty
     neofetch
     btop
     du-dust
     bat
     redis
-    
+
     brightnessctl
     dunst #notification daemon
     pavucontrol #sound settings GUI
@@ -47,6 +49,9 @@ in
     spotify
     spotify-tray
     jellyfin-media-player
+    inkscape
+    strawberry
+    haruna
 
     slack
     discord
@@ -55,11 +60,11 @@ in
     typescript
     bruno
 
-  (catppuccin-gtk.override {
-    size = "compact";
-    tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
-    variant = "mocha";
-  })
+    (catppuccin-gtk.override {
+      size = "compact";
+      tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
+      variant = "mocha";
+    })
   ];
 
   home.file = {

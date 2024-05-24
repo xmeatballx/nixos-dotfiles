@@ -3,6 +3,6 @@
 
 {
   home.packages = [
-    (pkgs.writeShellScriptBin "chrome" '' nvidia-offload google-chrome-stable --app=https://notion.so '')
+    (pkgs.writeShellScriptBin "notion" '' nvidia-offload google-chrome-stable --app=https://notion.so '')
   ];
 }
