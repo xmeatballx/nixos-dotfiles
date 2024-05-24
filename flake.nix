@@ -31,6 +31,10 @@
         inherit pkgs; 
         modules = [ ./user/home.nix ];
       };
+      dev = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs; 
+        modules = [ ./user/dev.nix ];
+      };
     };
   };
 }
