@@ -1,5 +1,6 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
+local configs = require('lspconfig.configs')
 local eslint = require('efmls-configs.linters.eslint')
 local prettier = require('efmls-configs.formatters.prettier')
 local stylua = require('efmls-configs.formatters.stylua')
@@ -7,10 +8,14 @@ local languages = {
   typescript = { eslint, prettier },
   lua = { stylua },
 }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.rnix.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.svelte.setup {}
+lspconfig.rust_analyzer.setup {}
 
 lspconfig.efm.setup {
   filetypes = vim.tbl_keys(languages),
@@ -23,6 +28,8 @@ lspconfig.efm.setup {
     documentRangeFormatting = true,
   },
 }
+
+lspconfig.html.setup {}
 
 lspconfig.lua_ls.setup {
   settings = {
@@ -50,6 +57,32 @@ lspconfig.lua_ls.setup {
     },
   },
 }
+
+
+if not configs.ls_emmet then
+  configs.ls_emmet = {
+    default_config = {
+      cmd = { 'emmet-ls', '--stdio' },
+      filetypes = {
+        'html',
+        'css',
+        'scss',
+        'javascriptreact',
+        'typescriptreact',
+        'xml',
+        'sass',
+        'hbs',
+        'handlebars',
+      },
+      root_dir = function(fname)
+        return vim.loop.cwd()
+      end,
+      settings = {},
+    },
+  }
+end
+
+lspconfig.ls_emmet.setup { capabilities = capabilities }
 
 
 -- Global mappings.
@@ -83,6 +116,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<C-.>', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<space>f', function()
       vim.lsp.buf.format { async = true }

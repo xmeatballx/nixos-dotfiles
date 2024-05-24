@@ -1,17 +1,11 @@
 warning: Git tree '/home/meatball/nixos-dotfiles' is dirty
-these 6 derivations will be built:
-  /nix/store/z4z8b36pwnq5773gs172hzbmab9y4q38-reconfig.drv
-  /nix/store/8q8ipgz6fnm9zyg7xa1addxfz3jl7krx-home-manager-path.drv
-  /nix/store/d8f30yfk3nvdhskws1jsi5h37z253z4w-hm_tmuxtmux.conf.drv
-  /nix/store/gxmlr21w85pbl9yl3ds2vslz8k0mvzyy-home-manager-files.drv
-  /nix/store/vi8wif3jyiciq3666af613mhn2fhi72g-activation-script.drv
-  /nix/store/ld1gfb1mdbgv1mzf6xp7cr9h2hz5kpaz-home-manager-generation.drv
-building '/nix/store/d8f30yfk3nvdhskws1jsi5h37z253z4w-hm_tmuxtmux.conf.drv'...
-building '/nix/store/z4z8b36pwnq5773gs172hzbmab9y4q38-reconfig.drv'...
-building '/nix/store/gxmlr21w85pbl9yl3ds2vslz8k0mvzyy-home-manager-files.drv'...
-building '/nix/store/8q8ipgz6fnm9zyg7xa1addxfz3jl7krx-home-manager-path.drv'...
-building '/nix/store/vi8wif3jyiciq3666af613mhn2fhi72g-activation-script.drv'...
-building '/nix/store/ld1gfb1mdbgv1mzf6xp7cr9h2hz5kpaz-home-manager-generation.drv'...
+these 3 derivations will be built:
+  /nix/store/85f9d5jazfn9dd5cl9ricbbc7437xwma-hm_tmuxtmux.conf.drv
+  /nix/store/5dl4pzgbk320qgfazgkqjvcdp4i66ngn-home-manager-files.drv
+  /nix/store/q7apibdlyb5rfv78dgxd4bcd0c7jhvk7-home-manager-generation.drv
+building '/nix/store/85f9d5jazfn9dd5cl9ricbbc7437xwma-hm_tmuxtmux.conf.drv'...
+building '/nix/store/5dl4pzgbk320qgfazgkqjvcdp4i66ngn-home-manager-files.drv'...
+building '/nix/store/q7apibdlyb5rfv78dgxd4bcd0c7jhvk7-home-manager-generation.drv'...
 Starting Home Manager activation
 Activating checkFilesChanged
 Activating checkLinkTargets
@@ -19,10 +13,9 @@ Activating writeBoundary
 Activating installPackages
 replacing old 'home-manager-path'
 installing 'home-manager-path'
-building '/nix/store/b3f2z69ngjymc4z664ajir291yr12d8k-user-environment.drv'...
 Activating linkGeneration
 Cleaning up orphan links from /home/meatball
-Creating profile generation 20
+Creating profile generation 56
 Creating home file links in /home/meatball
 Activating onFilesChange
 Activating reloadSystemd

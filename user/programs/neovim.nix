@@ -16,6 +16,8 @@ in
       nodePackages.typescript-language-server
       nodePackages.svelte-language-server
       efm-langserver
+      emmet-ls
+      vscode-langservers-extracted
       
       ripgrep
       xclip
@@ -27,6 +29,11 @@ in
       bufferline-nvim
       comment-nvim
       efmls-configs-nvim
+      vim-tmux-navigator
+      # {
+      # plugin = rustaceanvim;
+      #  config = toLuaFile ../config/nvim/plugins/rust.lua;
+      # }
       {
         plugin = vim-sleuth;
         config = toLua "require(\'bufferline\').setup()";
