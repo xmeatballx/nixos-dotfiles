@@ -21,6 +21,10 @@
        system = "x86_64-linux";
        modules = [ ./system/laptop-configuration.nix ];
      };
+     nixos-dev = lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [ ./system/devbox-configuration.nix ];
+     };
     };
     homeConfigurations = {
       meatball = home-manager.lib.homeManagerConfiguration {
