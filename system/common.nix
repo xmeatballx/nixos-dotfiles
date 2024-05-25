@@ -62,7 +62,8 @@
     };
   };
 
-  users.users.meatball.shell = pkgs.zsh;
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
 
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = true;
