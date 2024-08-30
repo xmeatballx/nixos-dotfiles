@@ -1,8 +1,11 @@
 { config, pkgs, lib, ...}:
 let
-  # Fetch the Neovim configuration from a Git repository
-  neovimConfig = builtins.fetchGit {
-    url = "https://github.com/xmeatballx/nvim2.0.git";
+  # Fetch the Neovim configuration from GitHub
+  neovimConfig = pkgs.fetchFromGitHub {
+    owner = "xmeatballx";  # Replace with your GitHub username
+    repo = "nvim2.0";  # Replace with your repository name
+    rev = "main";  # The branch you want to track
+    sha256 = "sha256-r31CcB6ceR48VZcgSiawXESVhB6qE/eIgWLx7Ke6LTw=";
   };
 
   toLua = str: "lua << EOF\n${str}\nEOF\n";
