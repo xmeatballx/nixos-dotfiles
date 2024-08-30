@@ -3,7 +3,6 @@ let
   # Fetch the Neovim configuration from a Git repository
   neovimConfig = builtins.fetchGit {
     url = "https://github.com/xmeatballx/nvim2.0.git";
-    rev = "main";  # optional: specify a commit or branch
   };
 
   toLua = str: "lua << EOF\n${str}\nEOF\n";
