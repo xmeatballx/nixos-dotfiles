@@ -1,11 +1,9 @@
 warning: Git tree '/home/meatball/nixos-dotfiles' is dirty
-these 3 derivations will be built:
-  /nix/store/85f9d5jazfn9dd5cl9ricbbc7437xwma-hm_tmuxtmux.conf.drv
-  /nix/store/5dl4pzgbk320qgfazgkqjvcdp4i66ngn-home-manager-files.drv
-  /nix/store/q7apibdlyb5rfv78dgxd4bcd0c7jhvk7-home-manager-generation.drv
-building '/nix/store/85f9d5jazfn9dd5cl9ricbbc7437xwma-hm_tmuxtmux.conf.drv'...
-building '/nix/store/5dl4pzgbk320qgfazgkqjvcdp4i66ngn-home-manager-files.drv'...
-building '/nix/store/q7apibdlyb5rfv78dgxd4bcd0c7jhvk7-home-manager-generation.drv'...
+these 2 derivations will be built:
+  /nix/store/52zizkd3mw3r4yj61hsxrdnnilvw0mfw-home-manager-files.drv
+  /nix/store/yxgv4m0vgz4fqmb1r1ba95dxvjmhq0h3-home-manager-generation.drv
+building '/nix/store/52zizkd3mw3r4yj61hsxrdnnilvw0mfw-home-manager-files.drv'...
+building '/nix/store/yxgv4m0vgz4fqmb1r1ba95dxvjmhq0h3-home-manager-generation.drv'...
 Starting Home Manager activation
 Activating checkFilesChanged
 Activating checkLinkTargets
@@ -15,7 +13,7 @@ replacing old 'home-manager-path'
 installing 'home-manager-path'
 Activating linkGeneration
 Cleaning up orphan links from /home/meatball
-Creating profile generation 56
+Creating profile generation 61
 Creating home file links in /home/meatball
 Activating onFilesChange
 Activating reloadSystemd

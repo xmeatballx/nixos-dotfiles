@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  wallpaper = ./config/wallpapers/nix_dark.png;
+  wallpaper = ./config/wallpapers/pixel2.png;
 in
 {
   imports = [

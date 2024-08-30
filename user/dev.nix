@@ -37,6 +37,10 @@
   };
 
   programs.tmux.prefix = lib.mkForce "^@";
+  programs.tmux.extraConfig = lib.mkForce ''
+      # set shell
+      set -g default-shell /nix/store/2mz9knjdab5war1psdbiji3rikl82d0c-system-path/bin/zsh
+  '';
 
   programs.home-manager.enable = true;
 }
