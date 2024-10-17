@@ -5,7 +5,7 @@ let
     owner = "xmeatballx";  # Replace with your GitHub username
     repo = "nvim2.0";  # Replace with your repository name
     rev = "main";  # The branch you want to track
-    sha256 = "sha256-r31CcB6ceR48VZcgSiawXESVhB6qE/eIgWLx7Ke6LTw=";
+    sha256 = "sha256-oboCPMuA0rpv16Yd2v2Jqs5rxRfHxkMP38EjzPT3kmI=";
   };
 
   toLua = str: "lua << EOF\n${str}\nEOF\n";
@@ -21,6 +21,7 @@ in
 
       lua-language-server
       rnix-lsp
+      phpactor
       nodePackages.typescript-language-server
       nodePackages.svelte-language-server
       efm-langserver
@@ -38,6 +39,7 @@ in
       comment-nvim
       efmls-configs-nvim
       vim-tmux-navigator
+      wrapping-nvim
       # {
       # plugin = rustaceanvim;
       #  config = toLuaFile "${neovimConfig}/plugins/rust.lua";
@@ -56,11 +58,15 @@ in
       }
       {
         plugin = nvim-lspconfig;
-        config = toLuaFile "${neovimConfig}/plugins/lsp.lua";
+        config = toLuaFile "${neovimConfig}/plugins/lspconfig.lua";
       }
       {
         plugin = nvim-cmp;
         config = toLuaFile "${neovimConfig}/plugins/cmp.lua";
+      }
+      {
+        plugin = wrapping-nvim;
+        config = toLua "require(\'wrapping\').setup()";
       }
       cmp-buffer
       cmp-path
@@ -81,7 +87,7 @@ in
           p.tree-sitter-typescript
           p.tree-sitter-svelte
         ]));
-        config = toLuaFile "${neovimConfig}/plugins/treesitter.lua";
+        config = toLuaFile "${neovimConfig}/plugins/nvim-treesitter.lua";
       }
       {
         plugin = catppuccin-nvim;

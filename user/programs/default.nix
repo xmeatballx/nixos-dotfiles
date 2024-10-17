@@ -5,5 +5,6 @@
     ./neovim.nix
     ./rofi.nix
     ./tmux.nix
+    ./looker.nix
   ];
 }
