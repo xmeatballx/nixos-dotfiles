@@ -67,18 +67,18 @@ in
 
     marktext
     todoist-electron
-
-    (catppuccin-gtk.override {
-      size = "compact";
-      tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
-      variant = "mocha";
-    })
   ];
 
-  home.file = {
-    ".background-image" = {
-      source = "${wallpaper}";
-    };
+  #home.file = {
+  #  ".background-image" = {
+  #    source = "${wallpaper}";
+  #  };
+  #};
+
+  stylix = {
+    enable = true;
+    image = "${wallpaper}";
+    polarity = dark;
   };
 
   home.sessionVariables = {

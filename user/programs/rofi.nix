@@ -6,7 +6,6 @@
 
   programs.rofi = {
     enable = true;
-    theme = "DarkBlue";
     plugins = [
       pkgs.rofi-emoji
       pkgs.rofi-calc

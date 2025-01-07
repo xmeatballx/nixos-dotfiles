@@ -65,17 +65,18 @@
 
   networking.enableIPv6  = false;
 
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
+  
+  services.libinput.touchpad.naturalScrolling  = true;
+
   services.xserver = {
     enable = true;
     videoDrivers = ["nvidia"];
-    libinput.touchpad.naturalScrolling  = true;
 
     desktopManager = {
       xterm.enable = false;
-    };
-   
-    displayManager = {
-      defaultSession = "none+i3";
     };
 
     windowManager.i3 = {

@@ -35,7 +35,7 @@
      vim 
      git
      docker-compose
-     nodejs_21
+     nodejs_22
      wget
      htop
   ];
@@ -77,4 +77,6 @@
       credential.helper = "store";
     };
   };  
+
+  programs.dconf.enable = true;
 }

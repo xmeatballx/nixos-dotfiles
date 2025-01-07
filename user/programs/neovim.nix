@@ -20,7 +20,7 @@ in
       gcc
 
       lua-language-server
-      rnix-lsp
+      nil
       phpactor
       nodePackages.typescript-language-server
       nodePackages.svelte-language-server
