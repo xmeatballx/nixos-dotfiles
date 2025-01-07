@@ -10,6 +10,8 @@
       "100:class_g = 'Google-chrome'"
       "100:class_g = 'Inkscape'"
       "100:class_g = 'haruna'"
+      "100:class_g = 'thunderbird'"
+      "100:class_g = 'marktext'"
     ];
   };
 }

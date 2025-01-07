@@ -30,6 +30,7 @@ in
 
   home.packages = with pkgs; [
     glib
+    xdotool
 
     kitty
     neofetch
@@ -46,12 +47,16 @@ in
     image-roll #image viewer
 
     google-chrome
+    firefox
     spotify
     spotify-tray
     jellyfin-media-player
     inkscape
     strawberry
     haruna
+    thunderbird
+    anki
+    autokey
 
     slack
     discord
@@ -59,6 +64,9 @@ in
     mongodb-compass
     typescript
     bruno
+
+    marktext
+    todoist-electron
 
     (catppuccin-gtk.override {
       size = "compact";

@@ -1,10 +1,19 @@
 { config, pkgs, ... }:
 {
   home.packages = [
-    pkgs.rofi-screenshot
+      pkgs.rofi-screenshot
   ];
+
   programs.rofi = {
     enable = true;
-    theme = "DarkBlue";    
+    theme = "DarkBlue";
+    plugins = [
+      pkgs.rofi-emoji
+      pkgs.rofi-calc
+      pkgs.rofi-file-browser
+    ];
   };
+
+  services.clipmenu.enable = true;
+  services.clipmenu.launcher = "rofi";
 }
