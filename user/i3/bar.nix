@@ -13,37 +13,37 @@ in
       };
       trayOutput = "primary";
 
-      colors = {
-        background = "${base}";
-        statusline = "${text}";
-        focusedStatusline = "${text}";
-        focusedSeparator = "${base}";
-        activeWorkspace = {
-          border = "${base}";
-          background = "${text}";
-          text = "${blue}";
-        };
-        focusedWorkspace = {
-          border = "${base}";
-          background = "${base}";
-          text = "${green}";
-        };
-        inactiveWorkspace = {
-          border = "${base}";
-          background = "${base}";
-          text = "${overlay0}";
-        };
-        urgentWorkspace = {
-          border = "${base}";
-          background = "${base}";
-          text = "${overlay0}";
-        };
-        bindingMode = {
-          border = "${base}";
-          background = "${base}";
-          text = "${overlay0}";
-        };
-      };
+#      colors = {
+#        background = "${base}";
+#        statusline = "${text}";
+#        focusedStatusline = "${text}";
+#        focusedSeparator = "${base}";
+#        activeWorkspace = {
+#          border = "${base}";
+#          background = "${text}";
+#          text = "${blue}";
+#        };
+#        focusedWorkspace = {
+#          border = "${base}";
+#          background = "${base}";
+#          text = "${green}";
+#        };
+#        inactiveWorkspace = {
+#          border = "${base}";
+#          background = "${base}";
+#          text = "${overlay0}";
+#        };
+#        urgentWorkspace = {
+#          border = "${base}";
+#          background = "${base}";
+#          text = "${overlay0}";
+#        };
+#        bindingMode = {
+#          border = "${base}";
+#          background = "${base}";
+#          text = "${overlay0}";
+#        };
+#      };
     }
   ];
 }

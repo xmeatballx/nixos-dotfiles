@@ -77,8 +77,25 @@ in
 
   stylix = {
     enable = true;
-    image = "${wallpaper}";
-    polarity = dark;
+    autoEnable = true;
+    image = ../user/config/wallpapers/pixel2.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal.yaml";
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+    };
   };
 
   home.sessionVariables = {

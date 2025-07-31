@@ -5,7 +5,7 @@ let
     owner = "xmeatballx";  # Replace with your GitHub username
     repo = "nvim2.0";  # Replace with your repository name
     rev = "main";  # The branch you want to track
-    sha256 = "sha256-oboCPMuA0rpv16Yd2v2Jqs5rxRfHxkMP38EjzPT3kmI=";
+    sha256 = "sha256-IuprWj4uqXc+Td8GK68xVjW8EGB+TDP1CXiHmkG0I5A=";
   };
 
   toLua = str: "lua << EOF\n${str}\nEOF\n";
@@ -22,7 +22,7 @@ in
       lua-language-server
       nil
       phpactor
-      nodePackages.typescript-language-server
+      typescript-language-server
       nodePackages.svelte-language-server
       efm-langserver
       emmet-ls
@@ -88,10 +88,6 @@ in
           p.tree-sitter-svelte
         ]));
         config = toLuaFile "${neovimConfig}/plugins/nvim-treesitter.lua";
-      }
-      {
-        plugin = catppuccin-nvim;
-        config = "colorscheme catppuccin-mocha";
       }
     ];
     viAlias = true;

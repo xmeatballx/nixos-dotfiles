@@ -20,7 +20,7 @@
     };
      nixos-laptop = lib.nixosSystem {
        system = "x86_64-linux";
-       modules = [ ./system/laptop-configuration.nix ];
+       modules = [ stylix.nixosModules.stylix ./system/laptop-configuration.nix ];
      };
      nixos-dev = lib.nixosSystem {
        system = "x86_64-linux";

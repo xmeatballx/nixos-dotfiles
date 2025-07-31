@@ -129,6 +129,30 @@
 
   programs.nm-applet.enable = true;
 
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    image = ../user/config/wallpapers/pixel2.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/black-metal.yaml";
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+    };
+  };
+
+
   security.acme = {
     acceptTerms = true;
     defaults.email = "erik.rjensen@yahoo.com";
@@ -139,4 +163,6 @@
   services.avahi.enable = true;
 
   services.blueman.enable = true;
+
+  services.ayatana-indicators.enable = true;
 }

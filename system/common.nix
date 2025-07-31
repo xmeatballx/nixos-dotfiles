@@ -46,8 +46,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
+
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    jetbrains-mono
   ];
 
   programs.zsh = {
